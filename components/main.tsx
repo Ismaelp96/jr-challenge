@@ -30,7 +30,7 @@ export const Main = () => {
           </h1>
 
           <p className='text-[#6f757c] font-semibold text-base text-center w-6/12 mt-4 z-20'>
-            Introducing our COffee Collection, a selection of unique coffees
+            Introducing our Coffee Collection, a selection of unique coffees
             from different roast types and origins, expertly roasted in small
             batches and shipped fresh weekly.
           </p>
@@ -53,19 +53,41 @@ export const Main = () => {
           <div className='grid grid-cols-3 gap-8 mt-8'>
             {mock.map((products, index) => (
               <div key={index} className=''>
-                <div className='overflow-hidden rounded-xl w-[300px] h-[180px]'>
+                <div className='overflow-hidden rounded-xl w-[300px] h-[180px] '>
                   <Image
                     src={products.img}
                     alt='Produtos'
                     width={300}
                     height={200}
-                    className='flex items-center justify-center object-cover'
+                    className='flex items-center justify-center object-cover hover:scale-105 transition-all duration-300 cursor-pointer'
                   />
                 </div>
                 <div className='flex justify-between items-center mt-2'>
-                  <p className='text-white font-semibold'>{products.title}</p>
-                  <span className='bg-[#BEE3CC] p-1 rounded-sm text-xs font-semibold'>
+                  <p className='text-white font-semibold cursor-pointer text-base hover:text-[#ed735D] transition-colors duration-300'>
+                    {products.title}
+                  </p>
+                  <span className='bg-[#BEE3CC] p-1 rounded-sm text-sm font-semibold'>
                     {products.price}
+                  </span>
+                </div>
+                <div className='flex justify-between items-center w-full mt-2'>
+                  <div className='flex items-center'>
+                    <Image
+                      src={products.starImg}
+                      width={24}
+                      height={24}
+                      alt='Star rating'
+                      className='mr-1'
+                    />
+                    <span className='mr-1 text-white font-semibold'>
+                      {products.rating}
+                    </span>
+                    <p className='text-[#6f757c] font-semibold'>
+                      {products.votes}
+                    </p>
+                  </div>
+                  <span className='text-[#ED735D] font-semibold'>
+                    {products.status}
                   </span>
                 </div>
               </div>
